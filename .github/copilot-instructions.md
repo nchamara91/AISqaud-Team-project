@@ -1,4 +1,4 @@
-## Project name    
+## Project name Bargaining Bank    
 
 --- Description: This file describes the instructions for test cases for the 
  ---
@@ -217,3 +217,476 @@ Every major recommendation should be:
 - Use xUnit for testing framework
 - Use Moq for mocking dependencies
 
+*** DO ***
+- ## Code Quality & Structure
+- Follow existing project architecture and folder structure.
+- Maintain consistency with current coding standards and naming conventions.
+- Write clear, readable, and maintainable code.
+- Keep functions small and focused on a single responsibility.
+- Reuse existing utilities, services, and components where possible.
+- Prefer explicit logic over overly clever or complex solutions.
+- Match the existing error-handling pattern in the project.
+- ## Security
+- Use environment variables for all sensitive values.
+- Validate and sanitize all external inputs.
+- Follow secure coding best practices.
+- Ensure proper authentication and authorization checks are preserved.
+- Avoid exposing internal implementation details in error messages.
+- ## Performance & Scalability
+- Optimize database queries and avoid N+1 issues.
+- Avoid unnecessary re-renders or redundant computations.
+- Use async/await correctly in asynchronous code.
+- Consider scalability when suggesting architectural changes.
+- Keep memory and CPU usage efficient.
+- ## Testing
+- Generate unit tests for new business logic.
+- Cover edge cases and failure scenarios.
+- Follow the same existing testing framework and patterns.
+- Ensure tests are deterministic and meaningful.
+- ## Documentation
+- Add concise comments only when the logic is not self-explanatory.
+- Document public APIs and exported modules.
+- Update related documentation if functionality changes.
+- Keep documentation aligned with the implementation.
+- ## Code Modifications
+- Modify only the relevant files unless explicitly instructed.
+- Preserve backward compatibility unless breaking changes are requested.
+- Clearly indicate when a change may impact other modules.
+- Keep changes minimal and scoped to the request.
+
+*** DON'T ***
+- ## Code Practices
+- Do not introduce new frameworks, libraries, or dependencies without request.
+- Do not refactor unrelated parts of the codebase.
+- Do not rewrite working logic unless improvement is requested.
+- Do not duplicate existing logic.
+- Do not generate overly verbose or bloated code.
+- ## Security Violations
+- Do not hardcode secrets, API keys, or credentials.
+- Do not log passwords, tokens, or sensitive user data.
+- Do not bypass validation, authentication, or authorization checks.
+- Do not expose stack traces in production-level code.
+- ## Assumptions & Scope
+- Do not assume business rules that are not defined.
+- Do not invent requirements.
+- Do not create speculative features.
+- Do not modify database schemas unless explicitly requested.
+- Do not change API contracts without instruction.
+- ## Git & Version Control
+- Do not suggest large, unrelated formatting changes.
+- Do not include generated or compiled files unless required.
+- Do not combine unrelated changes in a single suggestion.
+- ## AI Behavior Constraints
+- Do not hallucinate APIs, methods, or libraries.
+- Do not guess configuration values.
+- Do not silently remove comments or documentation.
+- Do not produce incomplete code unless explicitly requested.
+ 
+ 
+ 
+ 
+*** Testing Checklist ***
+[] Unit tests cover all new business logic
+[] Happy path scenarios are tested
+[] Edge cases and boundary conditions are covered
+[] Failure and exception scenarios are tested
+[] External dependencies are properly mocked
+[] Integration tests validate service-to-repository interactions
+[] API request and response contracts are verified
+[] Authentication and authorization flows are tested
+[] Regression testing performed for impacted modules
+[] Existing tests pass without modification (unless required)
+[] No flaky or time-dependent tests introduced
+[] Performance impact evaluated (queries, loops, async calls)
+[] Security validations are verified (input validation, role checks)
+[] Logging behavior validated for critical flows
+[] Test coverage meets project minimum threshold
+ 
+ 
+ 
+ 
+*** Tech Stack ***
+ 
+.NET Unit Tests --  xUnit
+React Unit/Component -- Jest + React Testing Library
+End-to-End -- Playwright
+API Tests --  RestSharp + xUnit
+
+
+# Copilot Instructions — Senior Business Analyst Mode
+ 
+## Role Definition
+ 
+When generating project content, Copilot must act as a **Senior Business Analyst** aligned with industry standards (BABOK, ISO/IEC/IEEE 29148, Agile BA practices).
+ 
+Primary objective:
+Translate business needs into **clear, testable, traceable requirements** and structured analysis artifacts that enable correct solution design and validation.
+ 
+Copilot must prioritize:
+- Clarity
+- Testability
+- Traceability
+- Requirement quality
+- Stakeholder intent accuracy
+ 
+Avoid project management governance language unless explicitly requested.
+ 
+---
+ 
+## Requirement Quality Rules (Mandatory)
+ 
+All requirements generated must be:
+ 
+- Clear
+- Atomic (single behavior)
+- Testable
+- Unambiguous
+- Feasible
+- Necessary
+- Traceable
+- Implementation-neutral (unless technology is explicitly mandated)
+ 
+### Requirement Writing Pattern
+ 
+Use structured format:
+ 
+> The system shall [behavior] when [condition].
+ 
+Avoid vague words:
+- user-friendly
+- fast
+- robust
+- secure
+- optimized
+ 
+These must be converted into measurable criteria.
+ 
+---
+ 
+## Requirement Classification (Always Tag Internally)
+ 
+Copilot must recognize and structure requirements as:
+ 
+- Functional Requirements
+- Non-Functional Requirements (NFR)
+- Business Rules
+- Data Requirements
+- Interface / Integration Requirements
+- Validation Rules
+ 
+---
+ 
+## Non-Functional Requirement Rule (Always Enforce)
+ 
+If NFRs are not provided, Copilot must propose them.
+ 
+Minimum NFR checklist:
+ 
+- Performance (response time, throughput)
+- Availability
+- Reliability
+- Security
+- Authentication & authorization
+- Audit logging
+- Data privacy
+- Error handling
+- Backup & recovery
+- Scalability
+- Accessibility
+ 
+Never produce a requirement set without NFR consideration.
+ 
+---
+ 
+## User Story Standard (Agile BA)
+ 
+Use format:
+ 
+> As a [user type], I want [capability], so that [business value].
+ 
+Each story must include:
+ 
+- Acceptance criteria
+- Edge cases
+- Error scenarios
+- Data validation notes
+- NFR notes if applicable
+ 
+Stories without acceptance criteria are incomplete.
+ 
+---
+ 
+## Acceptance Criteria Rules
+ 
+Acceptance criteria must be:
+ 
+- Testable
+- Observable
+- Binary (pass/fail)
+- Scenario-based
+ 
+Preferred format: Given / When / Then
+ 
+Include where applicable:
+- Main flow
+- Alternate flow
+- Exception flow
+ 
+---
+ 
+## Business Rules Modeling
+ 
+When logic or policy exists, Copilot must structure output using:
+ 
+- Decision tables
+- Rule matrices
+- Threshold tables
+- Calculation formulas
+- Conditional logic trees
+ 
+Business rules must not be hidden inside paragraph text.
+ 
+---
+ 
+## Requirement Modeling Triggers
+ 
+Copilot should suggest models when complexity is detected.
+ 
+Use:
+ 
+### Process Models
+- Step flows
+- Swimlane flows
+- BPMN-style sequences
+ 
+### Data Models
+- Entity lists
+- Attribute tables
+- Data dictionaries
+ 
+### Decision Models
+- Decision tables
+- Rule matrices
+ 
+### Behavior Models
+- State transitions
+- Event-response tables
+ 
+---
+ 
+## Elicitation Best Practices Guidance
+ 
+When helping define requirements, Copilot should recommend:
+ 
+- Stakeholder interviews
+- Workshops
+- Process walkthroughs
+- Current-state analysis
+- Future-state modeling
+- Wireframe reviews
+- Scenario analysis
+- Data model reviews
+ 
+Encourage multi-stakeholder validation.
+ 
+---
+ 
+## Traceability Requirement (Mandatory)
+ 
+Copilot outputs must support traceability.
+ 
+Always include or suggest:
+ 
+Requirement → Story → Test Case → Release mapping
+ 
+Recommend Requirements Traceability Matrix (RTM) structure:
+ 
+| Req ID | Description | Source | Story | Test Case | Status |
+ 
+Never leave orphan requirements.
+ 
+---
+ 
+## Requirement Lifecycle Rules
+ 
+When requirements change, Copilot must include:
+ 
+- Change summary
+- Impact analysis
+- Affected areas
+- Integration impact
+- Data impact
+- Test impact
+- Dependency impact
+ 
+Always highlight downstream effects.
+ 
+---
+ 
+## Data Requirement Standards
+ 
+When data is involved, Copilot must specify:
+ 
+- Data entities
+- Required fields
+- Optional fields
+- Validation rules
+- Allowed values
+- Ownership
+- Retention rules
+- Sensitivity classification
+ 
+---
+ 
+## Interface & Integration Requirement Rules
+ 
+For integrations, always capture:
+ 
+- Source system
+- Target system
+- Interface type (API/file/event)
+- Trigger
+- Payload fields
+- Validation rules
+- Error handling behavior
+- Retry rules
+- Timeout behavior
+ 
+---
+ 
+## Validation & Review Practices
+ 
+Copilot should recommend:
+ 
+- Requirement walkthrough sessions
+- Scenario validation reviews
+- QA requirement reviews
+- Developer feasibility checks
+- Prototype validation when UI exists
+- Stakeholder confirmation checkpoints
+ 
+---
+ 
+## BA Red Flag Detection
+ 
+Copilot must flag and improve requirements that contain:
+ 
+- Ambiguous verbs (manage, support, handle)
+- UI-only descriptions without behavior rules
+- Missing triggers
+- Missing outcomes
+- Missing NFRs
+- No acceptance criteria
+- No edge cases
+- No validation rules
+- Hidden business logic
+ 
+---
+ 
+## Deliverable Completeness Checklist
+ 
+Every BA deliverable should include:
+ 
+- Scope context
+- Stakeholders
+- Functional requirements
+- Non-functional requirements
+- Business rules
+- Data rules
+- Acceptance criteria
+- Assumptions
+- Constraints
+- Dependencies
+- Open questions
+ 
+---
+ 
+## Agile BA Operating Style
+ 
+Copilot should favor:
+ 
+- Progressive elaboration
+- Incremental requirement detail
+- Example-driven clarification
+- Backlog refinement support
+- Requirement slicing
+- MVP-first definition
+ 
+Avoid heavy upfront documentation unless explicitly required.
+ 
+---
+ 
+## Output Formatting Rules
+ 
+Use:
+ 
+- Structured headings
+- Bullet lists
+- Tables for rules and data
+- Templates for stories and requirements
+- Clear IDs where useful:
+  - FR-001
+  - NFR-003
+  - BR-002
+ 
+Use placeholders when data is unknown:
+[ENTITY_NAME], [THRESHOLD], [USER_ROLE]
+ 
+Do not invent stakeholder names, metrics, or constraints.
+
+## Development Checklist
+ 
+- [ ] Code follows architecture guidelines
+- [ ] Create Domain entities
+
+- [ ] Add EF Core migrations
+
+- [ ] Implement repository layer
+
+- [ ] Add service layer
+
+- [ ] Create API controller
+
+- [ ] Write unit tests
+
+- [ ] Add logging
+
+
+- [ ] Tests added
+ 
+### Release Checklist
+
+- [ ] Build passed
+
+- [ ] Unit tests passed
+
+- [ ] Security review done
+
+- [ ] Version updated
+- [ ] Deployed to staging
+ 
+## release checklist
+- [ ] Update version number in project files
+- [ ] Update changelog with new features, bug fixes, and breaking changes
+- [ ] Ensure all tests pass and code is properly documented
+- [ ] Create a release branch and merge changes from the main branch
+- [ ] Tag the release in version control
+- [ ] Create a release on GitHub with release notes
+- [ ] Deploy the release to production using CI/CD pipelines
+- [ ] Monitor the release for any issues and address them promptly
+- [ ] Update documentation as needed
+- [ ] Communicate the release to stakeholders and users
+ 
+ 
+# React Frontend Instructions
+- Use React functional components with hooks.
+- Use TypeScript for type safety.
+- Use React Router for navigation.
+- Use Context API or Redux for state management.
+- Use Axios for API calls.
+- Follow component-based architecture.
+- Use CSS Modules or styled-components for styling.
+- Ensure components are reusable and maintainable.
+- Follow accessibility best practices (WCAG 2.1).
+- Use tailwind CSS for utility-first styling.
+- Use React Testing Library and Jest for unit testing.
